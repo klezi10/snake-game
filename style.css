@@ -35,11 +35,15 @@ h2 {
   flex-wrap: wrap;
   width: 200px;
   height: 200px;
-  border: 2px solid black;
+  border: 3px solid #f1f3ef;
   margin: 0 auto;
 }
 
 .square {
   width: 20px;
   height: 20px;
+}
+
+.snake {
+  background: yellow;
 }
