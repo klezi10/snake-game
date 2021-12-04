@@ -1,4 +1,5 @@
-const startBtn = document.querySelector('#start');
+const startBtn = document.getElementById('start');
+const restartBtn = document.getElementById('restart');
 const scoreDisplay = document.getElementById('score');
 const grid = document.querySelector('.grid');
 let squares = [];
