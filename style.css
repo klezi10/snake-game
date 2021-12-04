@@ -29,3 +29,17 @@ h2 {
   color: #526869;
   border-color: #526869;
 }
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+.square {
+  width: 20px;
+  height: 20px;
+}
