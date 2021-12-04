@@ -21,6 +21,20 @@ createGrid();
 theSnake.forEach((index) => squares[index].classList.add('snake'));
 
 function move() {
+  if (
+    //snake is at the left wall
+    (theSnake[0] % width === 0 && direction === -1) ||
+    //snake is at the right wall
+    (theSnake[0] % width === 9 && direction === 1) ||
+    //snake is at the top
+    (theSnake[0] - width < 0 && direction === -width) ||
+    //snake is at the bottom
+    (theSnake[0] + width >= 100 && direction === +width) ||
+    //snake goes into itself
+    squares[theSnake[0] + direction].classList.contains('snake')
+  )
+    return clearInterval(timerId);
+
   const tail = theSnake.pop();
   squares[tail].classList.remove('snake');
   theSnake.unshift(theSnake[0] + direction);
@@ -34,7 +48,6 @@ let timerId = setInterval(move, timeInterval);
 function controlSnake(event) {
   switch (event.key) {
     case 'ArrowDown':
-      console.log('down press');
       direction = +width;
       break;
     case 'ArrowUp':
