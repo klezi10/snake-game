@@ -1,0 +1,31 @@
+body {
+  background: #526869;
+  margin: 0;
+  text-align: center;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+.container {
+  max-width: 500px;
+  padding: 30px 50px;
+  background: #836482;
+  color: #f1f3ef;
+}
+
+.btn-branding {
+  background: #526869;
+  color: #f1f3ef;
+  border: 1px solid;
+  font-weight: bold;
+  transition: all 150ms ease-in-out;
+}
+
+.btn-branding:hover {
+  background: #f1f3ef;
+  color: #526869;
+  border-color: #526869;
+}
