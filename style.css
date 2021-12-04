@@ -16,7 +16,7 @@ h2 {
   color: #f1f3ef;
 }
 
-.btn-branding {
+.btn {
   background: #526869;
   color: #f1f3ef;
   border: 1px solid;
@@ -24,7 +24,7 @@ h2 {
   transition: all 150ms ease-in-out;
 }
 
-.btn-branding:hover {
+.btn:hover {
   background: #f1f3ef;
   color: #526869;
   border-color: #526869;
@@ -37,6 +37,7 @@ h2 {
   height: 200px;
   border: 3px solid #f1f3ef;
   margin: 0 auto;
+  padding: 0;
 }
 
 .square {
