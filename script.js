@@ -8,6 +8,8 @@ let direction = 1;
 let timeInterval = 1000;
 let width = 10;
 let appleIndex = 0;
+let score = 0;
+let speed = 0.9;
 
 function createGrid() {
   for (let i = 0; i < 100; i++) {
@@ -40,15 +42,24 @@ function move() {
   const tail = theSnake.pop();
   squares[tail].classList.remove('snake');
   theSnake.unshift(theSnake[0] + direction);
-  squares[theSnake[0]].classList.add('snake');
 
   if (squares[theSnake[0]].classList.contains('apple')) {
     squares[appleIndex].classList.remove('apple');
 
-    //add a square to the snake
+    squares[tail].classList.add('snake');
+
     theSnake.push(tail);
     generateApple();
+
+    score++;
+
+    scoreDisplay.textContent = score;
+    //speed our the snake
+    clearInterval(timerId);
+    timeInterval = timeInterval * speed;
+    timerId = setInterval(move, timeInterval);
   }
+  squares[theSnake[0]].classList.add('snake');
 }
 
 move();
