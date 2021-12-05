@@ -7,6 +7,7 @@ let theSnake = [2, 1, 0];
 let direction = 1;
 let timeInterval = 1000;
 let width = 10;
+let appleIndex = 0;
 
 function createGrid() {
   for (let i = 0; i < 100; i++) {
@@ -64,3 +65,13 @@ function controlSnake(event) {
 }
 
 document.addEventListener('keyup', controlSnake);
+
+function generateApple() {
+  do {
+    appleIndex = Math.floor(Math.random() * squares.length);
+  } while (squares[appleIndex].classList.contains('snake'));
+
+  squares[appleIndex].classList.add('apple');
+}
+
+generateApple();
