@@ -41,6 +41,14 @@ function move() {
   squares[tail].classList.remove('snake');
   theSnake.unshift(theSnake[0] + direction);
   squares[theSnake[0]].classList.add('snake');
+
+  if (squares[theSnake[0]].classList.contains('apple')) {
+    squares[appleIndex].classList.remove('apple');
+
+    //add a square to the snake
+    theSnake.push(tail);
+    generateApple();
+  }
 }
 
 move();
