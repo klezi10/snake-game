@@ -16,6 +16,7 @@ document.addEventListener('keyup', controlSnake);
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', restartGame);
 
+//created grid with JS - 100 squares
 function createGrid() {
   for (let i = 0; i < 100; i++) {
     const square = document.createElement('div');
