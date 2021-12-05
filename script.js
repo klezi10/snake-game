@@ -14,6 +14,7 @@ let timerId = 0;
 
 document.addEventListener('keyup', controlSnake);
 startBtn.addEventListener('click', startGame);
+restartBtn.addEventListener('click', restartGame);
 
 function createGrid() {
   for (let i = 0; i < 100; i++) {
@@ -29,6 +30,7 @@ createGrid();
 theSnake.forEach((index) => squares[index].classList.add('snake'));
 
 function startGame() {
+  clearInterval(timerId);
   timerId = setInterval(move, timeInterval);
   startBtn.style.display = 'none';
   restartBtn.style.display = 'block';
@@ -55,16 +57,11 @@ function move() {
 
   if (squares[theSnake[0]].classList.contains('apple')) {
     squares[appleIndex].classList.remove('apple');
-
     squares[tail].classList.add('snake');
-
     theSnake.push(tail);
     generateApple();
-
     score++;
-
     scoreDisplay.textContent = score;
-    //speed our the snake
     clearInterval(timerId);
     timeInterval = timeInterval * speed;
     timerId = setInterval(move, timeInterval);
@@ -98,3 +95,17 @@ function generateApple() {
 }
 
 generateApple();
+
+function restartGame() {
+  theSnake.forEach((index) => squares[index].classList.remove('snake'));
+  squares[appleIndex].classList.remove('apple');
+  clearInterval(timerId);
+  theSnake = [2, 1, 0];
+  score = 0;
+  scoreDisplay.textContent = 0;
+  direction = 1;
+  timeInterval = 1000;
+  generateApple();
+  theSnake.forEach((index) => squares[index].classList.add('snake'));
+  timerId = setInterval(move, timeInterval);
+}
