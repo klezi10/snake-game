@@ -10,6 +10,10 @@ let width = 10;
 let appleIndex = 0;
 let score = 0;
 let speed = 0.9;
+let timerId = 0;
+
+document.addEventListener('keyup', controlSnake);
+startBtn.addEventListener('click', startGame);
 
 function createGrid() {
   for (let i = 0; i < 100; i++) {
@@ -23,6 +27,12 @@ function createGrid() {
 createGrid();
 
 theSnake.forEach((index) => squares[index].classList.add('snake'));
+
+function startGame() {
+  timerId = setInterval(move, timeInterval);
+  startBtn.style.display = 'none';
+  restartBtn.style.display = 'block';
+}
 
 function move() {
   if (
@@ -62,10 +72,6 @@ function move() {
   squares[theSnake[0]].classList.add('snake');
 }
 
-move();
-
-let timerId = setInterval(move, timeInterval);
-
 function controlSnake(event) {
   switch (event.key) {
     case 'ArrowDown':
@@ -82,8 +88,6 @@ function controlSnake(event) {
       return;
   }
 }
-
-document.addEventListener('keyup', controlSnake);
 
 function generateApple() {
   do {
